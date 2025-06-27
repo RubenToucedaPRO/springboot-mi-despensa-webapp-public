@@ -308,11 +308,13 @@ Cobertura de los tests unitarios de *ProductService*:
 
 Aplicación para gestionar productos de la despensa y la lista de la compra, añadiéndolos a dichas listas mediante la lectura de códigos de barras o de forma manual. Está pensada principalmente para usarse desde el móvil, aunque es accesible desde cualquier dispositivo.
 
-El objetivo principal de esta aplicación es mantener actualizada tu despensa. A medida que vayas consumiendo productos, puedes moverlos a tu **lista de la compra**, y cuando vuelvas a adquirirlos, los reintroduces en la despensa. Así, siempre tendrás un inventario actualizado.
+El objetivo es mantener actualizada tu despensa. A medida que vayas consumiendo productos, puedes moverlos a tu **lista de la compra**, y cuando vuelvas a adquirirlos, los reintroduces en la despensa. Así, siempre tendrás un inventario actualizado.
 
 Puedes crear **productos personalizados** (por ejemplo, carne o vegetales frescos que no tienen código de barras o productos con código de barras pero con datos proporcionados por ti manualmente). Estos productos son utilizables  y editables únicamente por el usuario que los creó.
 
 La **lista de la compra** puede ser enviada por correo electrónico al email del usuario.
+
+Además, incorpora una funcionalidad centrada en la **elaboración y búsqueda de recetas**, que destaca por su carácter **colaborativo y social**: los usuarios pueden **crear, consultar y compartir recetas** con el resto de la comunidad. De este modo, se construye un **recetario colectivo**, accesible para todos, que crece con las aportaciones individuales de los propios usuarios.
 
 La aplicación cuenta con dos tipos de usuarios: **usuarios estándar** con rol `USER` (asignado automáticamente al registrarse) y un **usuario administrador** con rol `ADMIN` (este rol solo lo tiene el usuario con `id=1` y está fijado en la base datos).
 
@@ -439,11 +441,11 @@ Este proceso garantiza que solo usuarios con acceso al correo registrado puedan 
 
 + **Mensaje de validación exitosa**  
   Si la validación es exitosa, se muestra un mensaje de éxito y se redirige al usuario a la pantalla de inicio de sesión. En caso contrario, se muestra un mensaje indicando la causa del fallo y también se redirige.  
-  <p align="center">
-    <img src="https://github.com/RubenToucedaPRO/springboot-mi-despensa-webapp-public/blob/main/images/RegistroValidacionCorreoExitosa.PNG?raw=true"
-        alt="Mensaje validación correo exitosa en inicio de sesión" 
-        width="75%">
-  </p>
+<p align="center">
+  <img src="https://github.com/RubenToucedaPRO/springboot-mi-despensa-webapp-public/blob/main/images/RegistroValidacionCorreoExitosa.PNG?raw=true"
+      alt="Mensaje validación correo exitosa en inicio de sesión" 
+      width="75%">
+</p>
 
 **Pantalla de solicitud de restablecimiento de contraseña**  
 El usuario introduce su correo y se le envía un enlace para restablecer la contraseña.  
@@ -568,7 +570,7 @@ Vista en pantallas grandes:
 <p align="center">
   <img src="https://github.com/RubenToucedaPRO/springboot-mi-despensa-webapp-public/blob/main/images/Escaner.PNG?raw=true"
        alt="Escaneo de productos" 
-       width="40%">
+       width="75%">
 </p>
 
 Vista en móvil:  
@@ -675,14 +677,6 @@ Desde el nombre de usuario se accede a un menú desplegable con opciones de conf
 <p align="center">
   <img src="https://github.com/RubenToucedaPRO/springboot-mi-despensa-webapp-public/blob/main/images/Ajustes.PNG?raw=true"
        alt="Ajustes de usuario" 
-       width="75%">
-</p>
-
-- **Confirmación de baja**:  
-Al pulsar `Dar de baja`, se muestra un popup de confirmación para evitar eliminaciones accidentales. Esta acción es irreversible y elimina permanentemente la cuenta y todos los datos asociados.  
-<p align="center">
-  <img src="https://github.com/RubenToucedaPRO/springboot-mi-despensa-webapp-public/blob/main/images/AjustesConfirmacionBaja.PNG?raw=true"
-       alt="Confirmación baja" 
        width="75%">
 </p>
 
