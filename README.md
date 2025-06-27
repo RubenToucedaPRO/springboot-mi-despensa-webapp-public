@@ -22,13 +22,6 @@ Este repositorio contiene una versión reducida del proyecto real, con fines dem
 
   Spring Boot es un **framework** de desarrollo que simplifica la creación de aplicaciones basadas en Spring.
 
-  A través de la herramienta web **https://start.spring.io/** podemos crear el proyecto base con una serie de **starters** (grupos de dependencias) que ya incluyen todo lo necesario para comenzar a desarrollar el proyecto y facilitar su puesta en marcha. Por ejemplo, integra un servidor Tomcat para ejecutar localmente la aplicación sin necesidad de más instalaciones ni configuraciones.
-<p align="center">
-  <img src="https://github.com/RubenToucedaPRO/springboot-mi-despensa-webapp-public/blob/main/images/SpringInizializr.PNG?raw=true"
-       alt="Spring initializr" 
-       width="75%">
-</p>
-
 - **Motor de plantillas: Thymeleaf**
 <p align="center">
   <img src="https://github.com/RubenToucedaPRO/springboot-mi-despensa-webapp-public/blob/main/images/Thymeleaf.PNG?raw=true"
@@ -40,7 +33,7 @@ Este repositorio contiene una versión reducida del proyecto real, con fines dem
 
 - **Framework CSS: Bootstrap**
 
-  Se utilizó Bootstrap para facilitar el diseño responsivo de la aplicación y mejorar la experiencia de usuario en dispositivos móviles y de escritorio. Gracias a sus formularios y componentes reutilizables, se pudieron construir interfaces claras y adaptables sin tener que desarrollar todo el estilo desde cero.
+Se utilizó Bootstrap para facilitar el diseño responsivo de la aplicación y mejorar la experiencia de usuario en dispositivos móviles y de escritorio. Gracias a sus formularios y componentes reutilizables, se pudieron construir interfaces claras y adaptables sin tener que desarrollar todo el estilo desde cero.
 
 - **Base de datos: MySQL + MySQL Workbench**
 <p align="center">
@@ -62,38 +55,30 @@ Este repositorio contiene una versión reducida del proyecto real, con fines dem
 
 - **Control de versiones: Git + GitHub + Sourcetree**
 
-  Se utilizó **Git** como sistema de control de versiones, permitiendo llevar un seguimiento detallado de los cambios en el código. La integración con **GitHub** facilitó el almacenamiento remoto. Además, se empleó **Sourcetree** como interfaz gráfica para simplificar la gestión de ramas, commits y fusiones. Esta combinación permitió organizar mejor el desarrollo, crear ramas para funcionalidades específicas y recuperar versiones anteriores fácilmente en caso de error o necesidad de revisión.
+Se utilizó **Git** como sistema de control de versiones, permitiendo llevar un seguimiento detallado de los cambios en el código. La integración con **GitHub** facilitó el almacenamiento remoto. Además, se empleó **Sourcetree** como interfaz gráfica para simplificar la gestión de ramas, commits y fusiones. Esta combinación permitió organizar mejor el desarrollo, crear ramas para funcionalidades específicas y recuperar versiones anteriores fácilmente en caso de error o necesidad de revisión.
 
 - **IDE: Eclipse**
 
-  Tras pruebas con IntelliJ IDEA y **Eclipse**, se optó por este último porque la herramienta Dev Tools (permite la modificación en tiempo de ejecución del código) no funcionaba correctamente en IntelliJ.
+Tras pruebas con IntelliJ IDEA y **Eclipse**, se optó por este último porque la herramienta Dev Tools (permite la modificación en tiempo de ejecución del código) no funcionaba correctamente en IntelliJ.
 
 - **API externa: OpenFoodFacts**
 
-  **OpenFoodFacts** es una base de datos de productos alimenticios libre y abierta. Mediante la inyección de una librería de pl.coderion (desarrollador) se puede emplear un **wrapper** que facilita la obtención de datos desde la API externa a partir del código de barras leído.
+**OpenFoodFacts** es una base de datos de productos alimenticios libre y abierta. Mediante la inyección de una librería de pl.coderion (desarrollador) se puede emplear un **wrapper** que facilita la obtención de datos desde la API externa a partir del código de barras leído.
 
 - **Escáner de códigos de barras: html5-qrcode + JavaScript**
 
-  La funcionalidad de escaneo de códigos de barras se implementó utilizando la librería **html5-qrcode**, una solución basada en JavaScript que permite acceder a la cámara del dispositivo desde cualquier navegador moderno sin necesidad de plugins adicionales ni Flash.
-
-  El escáner se inicializa únicamente cuando el usuario abre el modal de “Agregar producto” y se detiene automáticamente al cerrarlo, gracias a un script personalizado en JavaScript. Esta lógica permite a la aplicación optimizar recursos del sistema (como el uso de la cámara), mejorando la experiencia de usuario y respetando su privacidad.
-
-  La integración se realizó mediante un formulario oculto (`<form>` con input tipo hidden) que se rellena automáticamente con el código de barras detectado, y se envía al backend Spring Boot mediante una petición POST a "/products/scanner", donde se procesa el código leído y se busca la información del producto en la base de datos o en OpenFoodFacts.
+La funcionalidad de escaneo de códigos de barras se implementó utilizando la librería **html5-qrcode**, una solución basada en JavaScript que permite acceder a la cámara del dispositivo desde cualquier navegador moderno sin necesidad de plugins adicionales ni Flash.
 
 - **Gestión de etiquetas: Tagify + JavaScript**
 
-  Para facilitar la introducción y gestión de etiquetas en los formularios de la aplicación (tags e ingredientes), se utilizó la librería **Tagify**, que permite introducir múltiples valores en un solo campo de texto de forma visual e intuitiva.
+ Para facilitar la introducción y gestión de etiquetas en los formularios de la aplicación (tags e ingredientes), se utilizó la librería **Tagify**, que permite introducir múltiples valores en un solo campo de texto de forma visual e intuitiva.
 
-  El sistema permite tanto seleccionar etiquetas existentes (cargadas desde el backend mediante peticiones fetch) como crear nuevas. Mientras el usuario escribe, ofrece sugerencias automáticas, mejorando así la experiencia de uso y la calidad de los datos guardados.
+El sistema permite tanto seleccionar etiquetas existentes (cargadas desde el backend mediante peticiones fetch) como crear nuevas. Mientras el usuario escribe, ofrece sugerencias automáticas, mejorando así la experiencia de uso y la calidad de los datos guardados.
 
-  El funcionamiento es el siguiente:
-  - El usuario introduce dos o más caracteres, Tagify lanza una petición fetch a un controlador REST, que a su vez llama al servicio correspondiente.
-  - Este servicio realiza una consulta a la base de datos recuperando 10 etiquetas que contengan esos caracteres.
-  - Las sugerencias se muestran en pantalla para que el usuario pueda seleccionar una fácilmente.
 <p align="center">
   <img src="https://github.com/RubenToucedaPRO/springboot-mi-despensa-webapp-public/blob/main/images/Tagify.PNG?raw=true"
        alt="Tagify" 
-       width="50%">
+       width="75%">
 </p>
 
 - **Thumbnailator**
@@ -143,7 +128,7 @@ La estructura general de la aplicación es la siguiente:
 
 ### Backend (Spring Boot)
 
-La parte backend está estructurada en las siguientes capas:
+La parte backend está estructurada en los siguientes paquetes:
 
 - **Configs (configuraciones)**: Se encarga de realizar configuraciones como la del correo electrónico, la configuración de Spring Security o la configuración para indicar una carpeta del proyecto con imágenes accesibles.
 <p align="center">
@@ -295,7 +280,11 @@ La base de datos fue diseñada utilizando **MySQL**, debido a la experiencia pre
 
 Se definió la estructura de la base de datos y se generó el script correspondiente utilizando **MySQL Workbench 8.0**, lo que facilitó tanto la creación como la visualización del modelo relacional de manera gráfica y estructurada.
 
-  ![Estructura de la base de datos](https://github.com/RubenToucedaPRO/springboot-mi-despensa-webapp-public/images/EstructuraBD.png)
+<p align="center">
+  <img src="https://github.com/RubenToucedaPRO/springboot-mi-despensa-webapp-public/blob/main/images/EstructuraBD.PNG?raw=true"
+       alt="Estructura de la base de datos" 
+       width="80%">
+</p>
 
 ## Pruebas unitarias con JUnit
 
@@ -329,35 +318,35 @@ La aplicación cuenta con dos tipos de usuarios: **usuarios estándar** con rol 
 
 ### Funcionalidades principales de "Mi Despensa"
 
-### Gestión de productos
+#### Gestión de productos
 - Añadir productos a la despensa mediante escaneo de código de barras o de forma manual.
 - Mover productos de la despensa a la lista de la compra y viceversa.
 - Crear productos personalizados (sin código de barras).
 - Visualización y edición de productos por parte del usuario que los creó.
 
-### Lista de la compra
+#### Lista de la compra
 - Añadir productos desde la despensa.
 - Enviar la lista de la compra al correo electrónico del usuario.
 
-### Gestión de usuarios
+#### Gestión de usuarios
 - Registro con verificación de correo electrónico.
 - Inicio de sesión seguro.
 - Restablecimiento de contraseña mediante enlace enviado por email.
 - Cambiar correo electrónico desde la sección de ajustes (requiere nueva verificación del correo).
 - Cambiar contraseña desde la sección de ajustes.
 
-### Escaneo de productos (códigos de barras)
+#### Escaneo de productos (códigos de barras)
 - Buscar el producto en la base de datos por usuario.
 - Si no existe, buscar productos públicos (`idUser = 1`).
 - Si no se encuentra, consultar la API de OpenFoodFacts.
 - Si tampoco existe en la API, solicitar datos manualmente y guardar el producto como personalizado.
 
-### Recetas
+#### Recetas
 - Consultar recetas públicas.
 - Crear recetas propias y elegir si son públicas o privadas.
 - Filtrar recetas por categoría o buscar por ingredientes.
 
-### Roles de usuario
+#### Roles de usuario
 - `USER`: 
   - Acceso a funciones básicas de gestión de productos, recetas y lista de la compra.
 - `ADMIN`: 
@@ -366,11 +355,11 @@ La aplicación cuenta con dos tipos de usuarios: **usuarios estándar** con rol 
   - Gestionar usuarios (incluida su eliminación).
   - Convertir productos personalizados en públicos.
 
-### Seguridad y autenticación
+#### Seguridad y autenticación
 - Control de roles (`USER` y `ADMIN`) con Spring Security.
 - Verificación por token para validar cuentas y cambios de correo o restablecimiento contraseña.
 
-### Contacto y privacidad
+#### Contacto y privacidad
 - Formulario de contacto para enviar mensajes al administrador.
 - Página de política de privacidad.
 
@@ -396,11 +385,6 @@ Vista en dispositivos móviles:
 
 **Pantalla política de privacidad**  
 Muestra la política de privacidad de la aplicación. La lectura y aceptación de esta política será requerida durante el proceso de registro.  
-<p align="center">
-  <img src="https://github.com/RubenToucedaPRO/springboot-mi-despensa-webapp-public/blob/main/images/PoliticaDePrivacidad.PNG?raw=true"
-       alt="Pantalla política de privacidad" 
-       width="75%">
-</p>
 
 **Pantalla de formulario de contacto**  
 Esta pantalla permite al usuario contactar con el administrador. El administrador recibirá un correo desde la cuenta de la aplicación: **midespensa.contact@gmail.com**.  
